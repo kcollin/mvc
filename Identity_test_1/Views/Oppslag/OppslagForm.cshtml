@@ -1,0 +1,58 @@
+﻿@model Identity_test_1.Models.OppslagFormViewModel
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>OppslagFormViewModel</legend>
+        <legend>Fields</legend>
+
+        @Html.ValidationSummary("Rett opp følgende feil ")
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Oppslag.tittel)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Oppslag.tittel)
+            @Html.ValidationMessageFor(model => model.Oppslag.tittel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Oppslag.ingress)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Oppslag.ingress)
+            @Html.ValidationMessageFor(model => model.Oppslag.ingress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Oppslag.oppslagTekst)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Oppslag.oppslagTekst)
+            @Html.ValidationMessageFor(model => model.Oppslag.oppslagTekst)
+        </div>
+
+
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Oppslag.kategori.kategoriId, Model.Kategorier)
+        </div>
+
+        <div class="display-label">
+            Eier: @Html.DisplayFor(model => model.eier)
+        </div>
+
+        <p>
+            <input type="submit" value="Lagre" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
